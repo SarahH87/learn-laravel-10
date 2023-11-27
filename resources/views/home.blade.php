@@ -3,5 +3,6 @@
 @section('title', 'Employee List')
 
 @section('content')
-    <p>List of employees below</p>
+
+    @include('employee.index')
 @endsection
