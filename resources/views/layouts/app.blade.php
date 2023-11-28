@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container h-full grid place-items-center">
             @yield('content')
         </div>
     </body>
