@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>@yield('title')</title>
+        <title>Inertia with Vue</title>
         <script src="http://unpkg.com/vue@3"></script>
         <script src="https://cdn.tailwindcss.com"></script>
 
@@ -11,10 +11,8 @@
     </head>
 
     <body>
-        <div class="container h-full grid place-items-center">
+        <div id="App" class="container h-full grid place-items-center">
             @inertia
-
-            @yield('content')
         </div>
     </body>
 </html>
