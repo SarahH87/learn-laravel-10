@@ -27,5 +27,3 @@ Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
 //Route::resource('employees', 'EmployeeController')->except([
 //    'show',
 //]);
-//
-//Route::inertia('/demo', 'Demo');
