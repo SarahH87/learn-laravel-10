@@ -4,7 +4,6 @@
             <Link href="/" class="px-3 py-2 bg-gray-300 rounded mr-2">Home</Link>
         </header>
         <article class="mt-10">
-            <div class="mb-5">Current Page: {{ currentPage }}</div>
             <slot/>
         </article>
     </main>
