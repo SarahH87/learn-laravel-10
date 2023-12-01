@@ -48,19 +48,9 @@ class MainController extends Controller
             ],
         ];
 
-        $inProgressAssignments = array_filter($assignments, function ($item) {
-            return $item['complete'] === false;
-        });
-
-        $completedAssignments = array_filter($assignments, function ($item) {
-            return $item['complete'] != false;
-        });
-
         return Inertia::render('Conditionals', [
             'currentPage' => 'home',
             'assignments' => $assignments,
-            'inProgressAssignments' => $inProgressAssignments,
-            'completedAssignments' => $completedAssignments,
         ]);
     }
 }

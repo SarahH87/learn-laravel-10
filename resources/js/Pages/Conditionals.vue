@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-bold mb-2">Conditionals</h1>
         <p>Conditionals exercise below</p>
 
-        <section v-show="inProgressAssignments">
+        <section v-show="inProgressAssignments.length">
             <h2 class="text-xl font-bold mt-8 mb-2">In Progress</h2>
 
             <ul>
@@ -18,14 +18,14 @@
             </ul>
         </section>
 
-        <section v-show="completedAssignments" class="mt-8">
+        <section v-show="completedAssignments.length" class="mt-8">
             <h2 class="text-xl font-bold">Completed</h2>
 
             <ul>
                 <li v-for="assignment in completedAssignments"
                     :key="assignment.id">
                     <label>
-                        @{{ assignment.name }}
+                        {{ assignment.name }}
 
                         <input type="checkbox" v-model="assignment.complete">
                     </label>
@@ -37,15 +37,20 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue';
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
     currentPage: String,
     assignments: Object,
-    inProgressAssignments: Object,
-    completedAssignments: Object,
 })
 
+const inProgressAssignments = computed(() => {
+    return props.assignments.filter(assignment => !assignment.complete);
+})
 
+const completedAssignments = computed(() => {
+    return props.assignments.filter(assignment => assignment.complete);
+})
 
 </script>
 
