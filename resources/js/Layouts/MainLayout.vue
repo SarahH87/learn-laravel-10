@@ -2,6 +2,7 @@
     <main>
         <header>
             <Link href="/" class="px-3 py-2 bg-gray-300 rounded mr-2">Home</Link>
+            <Link href="/conditionals" class="px-3 py-2 bg-gray-300 rounded mr-2">Lists and Conditionals</Link>
         </header>
         <article class="mt-10">
             <slot/>

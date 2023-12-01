@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
+
+Route::get('/conditionals', [\App\Http\Controllers\MainController::class, 'conditionals']);
 //
 //Route::get('/vue-attribute-binding', function () {
 //    return view('vue-attribute-binding');
