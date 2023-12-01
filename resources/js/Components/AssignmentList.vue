@@ -3,19 +3,19 @@
         <h2 class="text-xl font-bold mt-8 mb-2">{{ title }}</h2>
 
         <ul>
-            <li v-for="assignment in assignments"
-                :key="assignment.id">
-                <label>
-                    {{ assignment.name }}
-
-                    <input type="checkbox" v-model="assignment.complete">
-                </label>
-            </li>
+            <assignment
+                v-for="assignment in assignments"
+                :key="assignment.id"
+                :assignment="assignment"
+                >
+            </assignment>
         </ul>
     </section>
 </template>
 
 <script setup>
+
+import Assignment from '@/Components/Assignment.vue';
 
 defineProps({
     assignments: Object,
