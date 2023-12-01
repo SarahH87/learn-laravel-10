@@ -53,4 +53,9 @@ class MainController extends Controller
             'assignments' => $assignments,
         ]);
     }
+
+    public function addItem()
+    {
+        dd('calling add item');
+    }
 }

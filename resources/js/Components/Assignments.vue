@@ -10,6 +10,7 @@
 
 <script setup>
 import { computed, reactive } from 'vue';
+import { router } from '@inertiajs/vue3'
 import AssignmentList from '@/Components/AssignmentList.vue';
 
 const props = defineProps({

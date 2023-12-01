@@ -16,16 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
 
 Route::get('/conditionals', [\App\Http\Controllers\MainController::class, 'conditionals']);
-//
-//Route::get('/vue-attribute-binding', function () {
-//    return view('vue-attribute-binding');
-//});
-//
-//Route::get('/lists-conditionals', function () {
-//    return view('lists-conditionals');
-//});
-//
-//
-//Route::resource('employees', 'EmployeeController')->except([
-//    'show',
-//]);
+
+Route::post('/add-item', [\App\Http\Controllers\MainController::class, 'addItem']);
+
