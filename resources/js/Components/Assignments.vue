@@ -13,6 +13,7 @@ import AssignmentCreate from '@/Components/AssignmentCreate.vue';
 
 const props = defineProps({
     assignments: Object,
+    currentTag: String,
 })
 
 const inProgressAssignments = computed(() => {

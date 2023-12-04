@@ -1,5 +1,5 @@
 <template>
-    <MainLayout :current-page="currentPage" :current-tag="currentTag">
+    <MainLayout :current-page="currentPage">
         <h1 class="text-2xl font-bold mb-2">Conditionals</h1>
         <p>Conditionals exercise below</p>
 
@@ -11,6 +11,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue';
 import Assignments from '@/Components/Assignments.vue';
+import {defineEmits} from "vue";
 
 defineProps({
     currentPage: String,
