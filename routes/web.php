@@ -17,5 +17,3 @@ Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
 
 Route::get('/conditionals', [\App\Http\Controllers\MainController::class, 'conditionals']);
 
-Route::post('/add-item', [\App\Http\Controllers\MainController::class, 'addItem']);
-
