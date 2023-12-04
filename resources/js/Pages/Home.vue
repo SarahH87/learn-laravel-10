@@ -10,9 +10,12 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue';
 
-defineProps({
+const props = defineProps({
     currentPage: String,
+    users: Object
 })
+
+console.log(props.users);
 
 </script>
 

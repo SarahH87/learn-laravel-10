@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 
 class MainController extends Controller
 {
     public function home()
     {
+        $users = User::all();
+
         return Inertia::render('Home', [
             'currentPage' => 'home',
+            'users' => $users
         ]);
     }
 
