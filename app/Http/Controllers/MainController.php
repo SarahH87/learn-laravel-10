@@ -29,7 +29,7 @@ class MainController extends Controller
                 'tag' => 'vue',
             ]                ,
             [
-                'name' => 'Laravel basics recap',
+                'name' => 'Advanced Laravel recap',
                 'complete' => false,
                 'id' => 3,
                 'tag' => 'laravel'
@@ -50,6 +50,23 @@ class MainController extends Controller
                 'name' => 'Build API',
                 'complete' => true,
                 'id' => 6,
+                'tag' => 'laravel'
+            ],
+            [
+                'name' => 'Inertia Js course',
+                'complete' => false,
+                'id' => 7,
+                'tag' => 'laravel'
+            ],            [
+                'name' => 'Learn PEST',
+                'complete' => false,
+                'id' => 7,
+                'tag' => 'laravel'
+            ],
+            [
+                'name' => 'Read into AWS',
+                'complete' => false,
+                'id' => 8,
                 'tag' => 'laravel'
             ],
         ];
