@@ -1,6 +1,6 @@
 <template>
-    <AssignmentList :assignments="inProgressAssignments" title="In Progress"></AssignmentList>
-    <AssignmentList :assignments="completedAssignments" title="Completed"></AssignmentList>
+    <AssignmentList :assignments="inProgressAssignments" title="In Progress" currentTag="all"></AssignmentList>
+    <AssignmentList :assignments="completedAssignments" title="Completed" currentTag="all"></AssignmentList>
 
     <assignment-create @add="add"></assignment-create>
 </template>

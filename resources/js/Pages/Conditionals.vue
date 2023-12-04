@@ -1,5 +1,5 @@
 <template>
-    <MainLayout :current-page="currentPage">
+    <MainLayout :current-page="currentPage" :current-tag="currentTag">
         <h1 class="text-2xl font-bold mb-2">Conditionals</h1>
         <p>Conditionals exercise below</p>
 
