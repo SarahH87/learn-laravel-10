@@ -7,7 +7,6 @@ use App\Http\Requests\StoreAssignmentRequest;
 use App\Http\Requests\UpdateAssignmentRequest;
 use App\Http\Resources\AssignmentResource;
 use App\Models\Assignment;
-use Illuminate\Http\Request;
 
 class AssignmentsController extends Controller
 {
@@ -47,5 +46,13 @@ class AssignmentsController extends Controller
         return AssignmentResource::make($assignment);
     }
 
+    /**
+     * Delete a specific assignment
+     */
+    public function destroy(Assignment $assignment)
+    {
+        $assignment->delete();
 
+        return response()->noContent();
+    }
 }

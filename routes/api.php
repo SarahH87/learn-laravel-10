@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\AssignmentsController;
+use App\Http\Controllers\CompleteAssignmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function() {
     Route::apiResource('/assignments', AssignmentsController::class);
+    Route::patch('assignments/{assignment}/complete', CompleteAssignmentController::class);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
