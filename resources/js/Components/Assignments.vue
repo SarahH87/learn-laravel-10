@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue';
+import { computed, onMounted, reactive } from 'vue';
 import { router } from '@inertiajs/vue3'
 import AssignmentList from '@/Components/AssignmentList.vue';
 import AssignmentCreate from '@/Components/AssignmentCreate.vue';
@@ -16,6 +16,10 @@ const props = defineProps({
     currentTag: String,
 })
 
+const data = reactive({
+    newAssignments: Object,
+})
+
 const inProgressAssignments = computed(() => {
     return props.assignments.filter(assignment => !assignment.complete);
 })
@@ -23,6 +27,15 @@ const inProgressAssignments = computed(() => {
 const completedAssignments = computed(() => {
     return props.assignments.filter(assignment => assignment.complete);
 })
+
+onMounted(async () => {
+    fetch('http://localhost/api/v1/assignments')
+        .then(response => response.json())
+        .then(assignments => {
+            data.newAssignments = assignments;
+            console.log(data.newAssignments);
+        });
+});
 
 function add(item) {
     props.assignments.push({
