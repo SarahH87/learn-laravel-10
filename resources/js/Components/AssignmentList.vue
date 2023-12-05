@@ -1,12 +1,12 @@
 <template>
     <section v-show="assignments.length">
-        <h2
-            class="text-xl font-bold mt-8 mb-2">{{ title }}
+        <h2 class="text-xl font-bold mt-8 mb-2">
+            {{ title }}
             <span>({{ assignments.length}})</span>
         </h2>
 
         <assignment-tags
-            :initial-tags="assignments.map(a => a.tag)"
+            :initial-tags="initialTags"
             :current-tag="currentTag"
             @change="currentTag = $event"
         />
@@ -29,7 +29,7 @@ import AssignmentTags from '@/Components/AssignmentTags.vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-    assignments: Object,
+    assignments: Array,
     title: String,
     currentTag: String,
 });
@@ -42,6 +42,9 @@ const filteredAssignments = computed(() => {
     return props.assignments.filter(a => a.tag === props.currentTag);
 });
 
+const initialTags = computed(() => {
+    return props.assignments.map(a => a.tag);
+});
 
 </script>
 

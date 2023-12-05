@@ -1,24 +1,22 @@
 <template>
-    <AssignmentList :assignments="inProgressAssignments" title="In Progress" currentTag="all"></AssignmentList>
+    <AssignmentList :assignments="newAssignments" title="In Progress" currentTag="all"></AssignmentList>
     <AssignmentList :assignments="completedAssignments" title="Completed" currentTag="all"></AssignmentList>
 
     <assignment-create @add="add"></assignment-create>
 </template>
 
 <script setup>
-import { computed, onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import { router } from '@inertiajs/vue3'
 import AssignmentList from '@/Components/AssignmentList.vue';
 import AssignmentCreate from '@/Components/AssignmentCreate.vue';
 
 const props = defineProps({
-    assignments: Object,
+    assignments: Array,
     currentTag: String,
 })
 
-const data = reactive({
-    newAssignments: Object,
-})
+const newAssignments = reactive([])
 
 const inProgressAssignments = computed(() => {
     return props.assignments.filter(assignment => !assignment.complete);
@@ -32,8 +30,13 @@ onMounted(async () => {
     fetch('http://localhost/api/v1/assignments')
         .then(response => response.json())
         .then(assignments => {
-            data.newAssignments = assignments;
-            console.log(data.newAssignments);
+            newAssignments.value = assignments;
+            console.log('new data');
+            console.log(newAssignments.value);
+            // console.log('old data');
+            // console.log(props.assignments);
+            // data.newAssignments = assignments;
+            // console.log(data.newAssignments);
         });
 });
 
