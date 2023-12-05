@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('complete');
-            $table->string('tag');
+            $table->boolean('complete')->default(false);
+            $table->string('tag')->nullable();
             $table->timestamps();
         });
     }
