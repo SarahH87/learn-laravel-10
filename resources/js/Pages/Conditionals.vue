@@ -11,7 +11,7 @@
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue';
 import Assignments from '@/Components/Assignments.vue';
-import {defineEmits} from "vue";
+import Panel from '@/Components/Panel.vue';
 
 defineProps({
     currentPage: String,

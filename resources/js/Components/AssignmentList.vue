@@ -1,6 +1,6 @@
 <template>
-    <section v-show="show && assignments.length" class="w-60">
-        <div class="flex justify-between">
+    <Panel v-show="show && assignments.length" class="w-64">
+        <div class="flex justify-between max-w-full">
             <h2 class="text-xl font-bold mt-8 mb-2">
                 {{ title }}
                 <span>({{ assignments.length}})</span>
@@ -24,13 +24,14 @@
         </ul>
 
         <slot></slot>
-    </section>
+    </Panel>
 </template>
 
 <script setup>
 
 import Assignment from '@/Components/Assignment.vue';
 import AssignmentTags from '@/Components/AssignmentTags.vue';
+import Panel from '@/Components/Panel.vue';
 import {computed, reactive, ref} from 'vue';
 
 const props = defineProps({
