@@ -1,8 +1,11 @@
 <template>
-    <AssignmentList :assignments="inProgressAssignments" title="In Progress" currentTag="all"></AssignmentList>
-    <AssignmentList :assignments="completedAssignments" title="Completed" currentTag="all"></AssignmentList>
+    <section class="flex gap-20">
+        <AssignmentList :assignments="inProgressAssignments" title="In Progress" currentTag="all">
+            <assignment-create @add="add"></assignment-create>
+        </AssignmentList>
+        <AssignmentList :assignments="completedAssignments" title="Completed" currentTag="all" can-toggle></AssignmentList>
+    </section>
 
-    <assignment-create @add="add"></assignment-create>
 </template>
 
 <script setup>
