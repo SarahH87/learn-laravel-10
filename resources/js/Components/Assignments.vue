@@ -1,5 +1,5 @@
 <template>
-    <AssignmentList :assignments="newAssignments" title="In Progress" currentTag="all"></AssignmentList>
+    <AssignmentList :assignments="inProgressAssignments" title="In Progress" currentTag="all"></AssignmentList>
     <AssignmentList :assignments="completedAssignments" title="Completed" currentTag="all"></AssignmentList>
 
     <assignment-create @add="add"></assignment-create>
@@ -16,13 +16,15 @@ const props = defineProps({
     currentTag: String,
 })
 
-const newAssignments = reactive([])
+const newAssignments = reactive([]);
 
 const inProgressAssignments = computed(() => {
+    props.assignments = newAssignments;
     return props.assignments.filter(assignment => !assignment.complete);
 })
 
 const completedAssignments = computed(() => {
+    props.assignments = newAssignments;
     return props.assignments.filter(assignment => assignment.complete);
 })
 
@@ -31,12 +33,6 @@ onMounted(async () => {
         .then(response => response.json())
         .then(assignments => {
             newAssignments.value = assignments;
-            console.log('new data');
-            console.log(newAssignments.value);
-            // console.log('old data');
-            // console.log(props.assignments);
-            // data.newAssignments = assignments;
-            // console.log(data.newAssignments);
         });
 });
 
